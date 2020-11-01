@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.4k 字
+      1.5k 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      16
+      17
        分钟
     </span>
   
@@ -204,12 +204,10 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <p>@<a href="这里写自定义目录标题">TOC</a></p>
-<h1 id="欢迎使用Markdown编辑器"><a href="#欢迎使用Markdown编辑器" class="headerlink" title="欢迎使用Markdown编辑器"></a>欢迎使用Markdown编辑器</h1><p>你好！ 这是你第一次使用 <strong>Markdown编辑器</strong> 所展示的欢迎页。如果你想学习如何使用Markdown编辑器, 可以仔细阅读这篇文章，了解一下Markdown的基本语法知识。</p>
-<h2 id="新的改变"><a href="#新的改变" class="headerlink" title="新的改变"></a>新的改变</h2><p>我们对Markdown编辑器进行了一些功能拓展与语法支持，除了标准的Markdown编辑器功能，我们增加了如下几点新功能，帮助你用它写博客：</p>
-<ol>
-<li><strong>全新的界面设计</strong> ，将会带来全新的写作体验；</li>
-<li>在创作中心设置你喜爱的代码高亮样式，Markdown <strong>将代码片显示选择的高亮样式</strong> 进行展示；</li>
+              <h1 id="checkpoint，state，state-backend之间的关系"><a href="#checkpoint，state，state-backend之间的关系" class="headerlink" title="checkpoint，state，state backend之间的关系"></a>checkpoint，state，state backend之间的关系</h1><p>你好！ 这是你第一次使用 <strong>Markdown编辑器</strong> 所展示的欢迎页。如果你想学习如何使用Markdown编辑器, 可以仔细阅读这篇文章，了解一下Markdown的基本语法知识。</p>
+<h2 id="新的改变"><a href="#新的改变" class="headerlink" title="新的改变"></a>新的改变</h2><pre><code>进行checkpoint时，会将state保存到state backend：</code></pre><ol>
+<li>Flink CheckPoint的存在就是为了解决flink任务failover掉之后，能够正常恢复任务。那CheckPoint具体做了哪些功能，为什么任务挂掉之后，通过CheckPoint能使得任务恢复呢？</li>
+<li><strong>状态后端是保存状态的地方</strong>，决定状态如何保存，如何保障状态高可用，我们只需要知道，我们能从状态后端拿到offset信息和pv信息即可。状态后端必须是高可用的，否则我们的状态后端经常出现故障，会导致无法通过checkpoint来恢复我们的应用程序；</li>
 <li>增加了 <strong>图片拖拽</strong> 功能，你可以将本地的图片直接拖拽到编辑区域直接展示；</li>
 <li>全新的 <strong>KaTeX数学公式</strong> 语法；</li>
 <li>增加了支持<strong>甘特图的mermaid语法<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="mermaid语法说明
@@ -318,7 +316,7 @@ cond(no)-&gt;op</code></pre>
 </ul>
 <h2 id="导出与导入"><a href="#导出与导入" class="headerlink" title="导出与导入"></a>导出与导入</h2><h3 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h3><p>如果你想尝试使用此编辑器, 你可以在此篇文章任意编辑。当你完成了一篇文章的写作, 在上方工具栏找到 <strong>文章导出</strong> ，生成一个.md文件或者.html文件进行本地保存。</p>
 <h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><p>如果你想加载一篇你写过的.md文件，在上方工具栏可以选择导入功能进行对应扩展名的文件导入，<br>继续你的创作。</p>
-<p> [4]: <a href="http://adrai.github.io/flowchart.js/" target="_blank" rel="noopener">http://adrai.github.io/flowchart.js/</a><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a href="https://mermaidjs.github.io/" target="_blank" rel="noopener">mermaid语法说明</a><br><a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span>注脚的解释<br><a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section></p>
+<p>[4]: <a href="http://adrai.github.io/flowchart.js/" target="_blank" rel="noopener">http://adrai.github.io/flowchart.js/</a><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a href="https://mermaidjs.github.io/" target="_blank" rel="noopener">mermaid语法说明</a><br><a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span>注脚的解释<br><a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section></p>
 
             </article>
             <hr>
@@ -338,6 +336,12 @@ cond(no)-&gt;op</code></pre>
                   </div>
                   <div class="post-next col-6">
                     
+                    
+                      <a href="/2020/01/12/%E4%BA%BA%E7%94%9F%E7%83%9F%E7%81%AB-%E6%B2%BF%E9%80%94%E9%A3%8E%E6%99%AF/">
+                        <span class="hidden-mobile">人生烟火 沿途风景</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </div>
                 </div>
