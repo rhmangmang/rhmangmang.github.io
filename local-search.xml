@@ -4,6 +4,45 @@
   
   
   <entry>
+    <title>事务管理</title>
+    <link href="/2020/02/12/%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/"/>
+    <url>/2020/02/12/%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/</url>
+    
+    <content type="html"><![CDATA[<h2 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h2><img src="/Users/weizihan/Library/Application Support/typora-user-images/image-20201107204053580.png" srcset="/img/loading.gif" alt="image-20201107204053580" style="zoom:67%;" /><p>在高并发场景下，若隔离没有控制得当，则可能产生：</p><p>脏读；不可重复读；幻读</p><p><strong>脏读：</strong></p><img src="/Users/weizihan/Library/Application Support/typora-user-images/image-20201107204144410.png" srcset="/img/loading.gif" alt="image-20201107204144410" style="zoom:50%;" /><img src="/Users/weizihan/Library/Application Support/typora-user-images/image-20201107203810855.png" srcset="/img/loading.gif" alt="image-20201107203810855" style="zoom:67%;" /><p>开启事务（关闭自动提交事务）</p><p>提交事务</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>ThreadLocal</title>
+    <link href="/2020/02/05/ThreadLocal/"/>
+    <url>/2020/02/05/ThreadLocal/</url>
+    
+    <content type="html"><![CDATA[<h2 id="ThreadLocal在JDBC-Connection场景中使用案列"><a href="#ThreadLocal在JDBC-Connection场景中使用案列" class="headerlink" title="ThreadLocal在JDBC Connection场景中使用案列"></a>ThreadLocal在JDBC Connection场景中使用案列</h2><p>使用ThreadLocal保存JDBC链接</p><p><strong>数据库连接工具类：</strong></p><img src="/Users/weizihan/Library/Application Support/typora-user-images/image-20201107195011934.png" srcset="/img/loading.gif" alt="image-20201107195011934" style="zoom:57%;" /><p>数据库链接的使用方式：</p><img src="/Users/weizihan/Library/Application Support/typora-user-images/image-20201107195147652.png" srcset="/img/loading.gif" alt="image-20201107195147652" style="zoom:57%;" /><p>这个数据库链接使用的方式在多线程下会报<strong>数据库连接关闭错误</strong>。因为这个连接在多线程下是共用的，可能线程1 close了，线程2还在用相同的连接。（<strong>疑问：</strong>DriverManager.getConnection返回的是同一个对象吗？否则多线程返回的应该互不相干啊？答：多线程出现的场景可能是这样的：假设有线程A与线程B，线程A执行完conn=DriverManager.getConnection后，线程B执行conn=DriverManager.getConnection后，又由于conn是static的，所以当线程A执行conn.close时，实际上是线程B的conn，因此，若此时线程B还在执行，则会报错）</p><p>使用ThreadLocal来保护连接（因为Connection是static变量才用ThreadLocal；又或者可以直接将Connection不设为static变量，这样就不会线程不安全）</p><img src="/Users/weizihan/Library/Application Support/typora-user-images/image-20201107201630166.png" srcset="/img/loading.gif" alt="image-20201107201630166" style="zoom:50%;" /><p>参考文献: 架构探险 从零开始写javaweb框架</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>JMM</title>
+    <link href="/2020/02/02/JMM/"/>
+    <url>/2020/02/02/JMM/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Java内存模型"><a href="#Java内存模型" class="headerlink" title="Java内存模型"></a>Java内存模型</h1><p>重排序与happens-before的关系是什么？</p><p>在重排序的基础上，JMM为了保证：</p><img src="/Users/weizihan/Library/Application Support/typora-user-images/image-20201101235436070.png" srcset="/img/loading.gif" alt="image-20201101235436070" style="zoom:67%;" /><h2 id="重排序"><a href="#重排序" class="headerlink" title="重排序"></a>重排序</h2><img src="/Users/weizihan/Library/Application Support/typora-user-images/image-20201101173100615.png" srcset="/img/loading.gif" alt="image-20201101173100615" style="zoom:67%;" /><p>​        编译器（代码重排序）与处理器（指令重排序）不会改变存在<strong>数据依赖关系</strong>的两个操作的执行顺序。</p><p>​        这里所说的<strong>数据依赖关系</strong>仅针对<strong>单个处理器</strong>中执行的指令序列和<strong>单个线程</strong>中执行的操作，<strong>不同处理器之间和不同线程</strong>之间的数据依赖关系<strong>不被编译器和处理器考虑</strong>。如：</p><p><code>sfafasfsdf</code></p><h2 id="as-if-serial语义"><a href="#as-if-serial语义" class="headerlink" title="as-if-serial语义"></a>as-if-serial语义</h2><h2 id="happens-before"><a href="#happens-before" class="headerlink" title="happens-before"></a>happens-before</h2>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>JAVA8</title>
     <link href="/2020/01/21/java8/"/>
     <url>/2020/01/21/java8/</url>

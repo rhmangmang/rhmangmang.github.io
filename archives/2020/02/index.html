@@ -17,7 +17,7 @@
   <meta name="description" content="Less is more, and slower is faster">
   <meta name="author" content="ai">
   <meta name="keywords" content="coding java scala flink springboot springcloud kafka">
-  <title>deliberate learner</title>
+  <title>归档 - deliberate learner</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -42,7 +42,7 @@
 
 
 <body>
-  <header style="height: 100vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -143,10 +143,6 @@
           </div>
 
           
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
-          
         </div>
       </div>
     </div>
@@ -156,228 +152,39 @@
     
       <div class="container nopadding-md">
         <div class="py-5" id="board"
-          style=margin-top:0>
+          >
           
           <div class="container">
             <div class="row">
               <div class="col-12 col-md-10 m-auto">
                 
 
-
-  <div class="row mx-auto index-card">
+<div class="list-group">
+  <p class="h4">共计 6 篇文章</p>
+  <hr>
+  
     
+      
+      <p class="h5">2020</p>
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/02/12/%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/">事务管理</a>
-
-      <a href="/2020/02/12/%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/" class="index-excerpt">
-        
-        
-          
-        
-        <div>事务的隔离级别
-
-在高并发场景下，若隔离没有控制得当，则可能产生：
-脏读；不可重复读；幻读
-脏读：
-
-
-
-
-
-
-开启事务（关闭自动提交事务）
-提交事务
+    <a href="/2020/02/12/%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">事务管理</span>
+      <span style="float: right;">02-12</span>
+    </a>
+  
+    
+    <a href="/2020/02/05/ThreadLocal/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">ThreadLocal</span>
+      <span style="float: right;">02-05</span>
+    </a>
+  
+    
+    <a href="/2020/02/02/JMM/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">JMM</span>
+      <span style="float: right;">02-02</span>
+    </a>
+  
 </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-02-12
-          </div>
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/02/05/ThreadLocal/">ThreadLocal</a>
-
-      <a href="/2020/02/05/ThreadLocal/" class="index-excerpt">
-        
-        
-          
-        
-        <div>ThreadLocal在JDBC Connection场景中使用案列使用ThreadLocal保存JDBC链接
-数据库连接工具类：
-
-
-数据库链接的使用方式：
-
-
-这个数据库链接使用的方式在多线程下会报数据库连接关闭错误。因为这个连接在多线程下是共用的，可能线程1 close了，线程2还在用相同的连接。（疑问：DriverManager.getConnection返回的是同一个对象吗？否则多线程返</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-02-05
-          </div>
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/02/02/JMM/">JMM</a>
-
-      <a href="/2020/02/02/JMM/" class="index-excerpt">
-        
-        
-          
-        
-        <div>Java内存模型重排序与happens-before的关系是什么？
-在重排序的基础上，JMM为了保证：
-
-
-
-
-重排序
-
-​        编译器（代码重排序）与处理器（指令重排序）不会改变存在数据依赖关系的两个操作的执行顺序。
-​        这里所说的数据依赖关系仅针对单个处理器中执行的指令序列和单个线程中执行的操作，不同处理器之间和不同线程之间的数据依赖关系不被编译器和处理器考虑。如：
-s</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-02-02
-          </div>
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/01/21/java8/">JAVA8</a>
-
-      <a href="/2020/01/21/java8/" class="index-excerpt">
-        
-        
-          
-        
-        <div>JAVA知识点函数式接口
-
-由上面两张图可知，Thread的构造函数的参数是函数式接口，调用方式可以是如下的任意一种：
-public static void main(String[] args) &#123;
-    //注意，Runnable 的抽象函数的参数为空，因此传入的 getValue() setValue()函数的参数都为空
-    new Thread(() -&gt; setVa</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-01-21
-          </div>
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/01/18/%E9%87%8D%E6%9E%84/">重构</a>
-
-      <a href="/2020/01/18/%E9%87%8D%E6%9E%84/" class="index-excerpt">
-        
-        
-          
-        
-        <div>重构的目的
-使程序易于维护
-bug修复
-特性增加
-
-
-若项目代码已经很凌乱或满是错误，则重构不如重写。
-
-步骤一：构建一致性验证体系每次进行少量代码的重构，并在重构后进行一致性验证
-
-
-
-
-步骤二：重构
-函数表达的是一个功能，而此功能应隶属于某个类。因此，应尽可能将函数放置本属于它的类中，即放对位置
-
-看到3.6节
-</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-01-18
-          </div>
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/01/12/%E5%BC%80%E7%AF%87/">开篇</a>
-
-      <a href="/2020/01/12/%E5%BC%80%E7%AF%87/" class="index-excerpt">
-        
-        
-          
-        
-        <div>开篇——过往知识的总结为什么要对之前的知识进行总结？​        目前很多笔记较为零散。在形式上，笔记内容散落于onenote 有道笔记 线下笔记簿 手机笔记簿 等各处；在内容上，许多同类知识点未能从点串连成线，形成更为系统的知识框架。
-技能编程
-重构
-设计模式
-
-思维生活</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-01-12
-          </div>
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-
 
 
 
@@ -470,7 +277,7 @@ bug修复
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "沿途风景 人间烟火&nbsp;",
+        "归档&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
