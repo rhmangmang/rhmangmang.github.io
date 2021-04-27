@@ -168,22 +168,33 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2021/04/23/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%9E%E7%8E%B0/">数据库/数据库实现</a>
+      <a class="index-header" href="/2020/11/28/%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E7%BB%8F%E9%AA%8C%E6%A1%88%E4%BE%8B/">性能调优经验案例</a>
 
-      <a href="/2021/04/23/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%9E%E7%8E%B0/" class="index-excerpt">
+      <a href="/2020/11/28/%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E7%BB%8F%E9%AA%8C%E6%A1%88%E4%BE%8B/" class="index-excerpt">
         
         
           
         
-        <div>数据库实现存储：
-​    一个page可以存储一张表的schema（即page存储这个表有几列，每一列的属性信息等等）；一个page还可以存储tuple值（即多行的值），但这种情况下，若包含schema的page丢失，则其他所有在这个schema下的tuple值翻译不了了。所以，有的系统在一个page中即存储schema也存储对应的tuple值。
-![image-2021042316145645</div>
+        <div>性能优化三步骤
+性能监控
+性能分析
+性能调优
+
+一.性能监控1.操作系统级别监控数据1）CPU（1）CPU使用率
+用户态CPU使用率
+
+系统态CPU使用率
+原则：尽可能将分配得到的CPU周期都用来计算。
+
+
+​    系统态CPU使用率高意味着有资源竞争或正在进行I/O。最理想的情况下应该使系统态CPU使用率降为0%，即尽可能降低系统态CPU使用率。这样将有更多的CPU周期用于应用程序的计算。
+查</div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2021-04-23
+            <i class="iconfont icon-date"></i>&nbsp;2020-11-28
           </div>
         
         
@@ -196,21 +207,23 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2021/03/19/%E5%BE%AE%E6%9C%8D%E5%8A%A1/seata/">微服务/seata</a>
+      <a class="index-header" href="/2020/11/25/so%E9%93%BE%E6%8E%A5%E5%AD%98%E5%82%A8/">so链接存储</a>
 
-      <a href="/2021/03/19/%E5%BE%AE%E6%9C%8D%E5%8A%A1/seata/" class="index-excerpt">
+      <a href="/2020/11/25/so%E9%93%BE%E6%8E%A5%E5%AD%98%E5%82%A8/" class="index-excerpt">
         
         
           
         
-        <div>seata
-目前分布式事务解决的方案主要有对业务无入侵和有入侵的方案，无入侵方案主要有基于数据库 XA 协议的两段式提交（2PC）方案，它的优点是对业务代码无入侵，但是它的缺点也是很明显：必须要求数据库对 XA 协议的支持，且由于 XA 协议自身的特点，它会造成事务资源长时间得不到释放，锁定周期长，而且在应用层上面无法干预，因此它性能很差，它的存在相当于七伤拳那样“伤人七分，损己三分”，因此在互联</div>
+        <div>Linux共享库so的组织
+
+目标文件如何被链接器链接到一起，形成可执行文件；可执行文件如何被装载并且执行
+</div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2021-03-19
+            <i class="iconfont icon-date"></i>&nbsp;2020-11-25
           </div>
         
         
@@ -223,20 +236,29 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2021/03/03/IoTDB/Wildcard/">IoTDB/Wildcard</a>
+      <a class="index-header" href="/2020/11/24/%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E4%B8%ADCPU%20IO%20%E7%BD%91%E7%BB%9C%E7%AD%89%E6%A6%82%E5%BF%B5/">性能调优中CPU IO 网络等概念</a>
 
-      <a href="/2021/03/03/IoTDB/Wildcard/" class="index-excerpt">
+      <a href="/2020/11/24/%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98%E4%B8%ADCPU%20IO%20%E7%BD%91%E7%BB%9C%E7%AD%89%E6%A6%82%E5%BF%B5/" class="index-excerpt">
         
         
           
         
-        <div></div>
+        <div>CPUCPU性能受以下几个因素影响：
+
+处理器个数；
+核心个数；
+主频；
+有无Turbo模式；
+
+虽然 CPU 更新换代，但是处理器的时钟主频基本不再提高，甚至变得更低了。这样的目的是降低 CPU 的功耗。比如 SandyBridge 的时钟频率是 2.6GHz，但是到了 Skylake，反而降低到了 2GHz。
+每个处理器里面的核数却越来越多，这样就可以尽量的提升并行处理能力。
+每一代 CPU </div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2021-03-03
+            <i class="iconfont icon-date"></i>&nbsp;2020-11-24
           </div>
         
         
@@ -249,21 +271,23 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2021/03/03/IoTDB/%E9%80%9A%E9%85%8D%E7%AC%A6/">IoTDB/通配符</a>
+      <a class="index-header" href="/2020/11/19/issue%20contribute/">issue contribute</a>
 
-      <a href="/2021/03/03/IoTDB/%E9%80%9A%E9%85%8D%E7%AC%A6/" class="index-excerpt">
+      <a href="/2020/11/19/issue%20contribute/" class="index-excerpt">
         
         
           
         
-        <div>How to use the wildcard * to match one or more layers of nodes in the time series path?（The initial discussion is at https://issues.apache.org/jira/browse/IOTDB-1160）
-First Solution:“*” matches just o</div>
+        <div>1.fork代码，并拉到本地创建一个分支
+2.去jira找感兴趣的unassigned的issue
+3.修改完后的commit msg中前面填写jira的编号，如[IOTDB-993]
+![image-20201119223845591](/Users/weizihan/Library/Application Support/typora-user-images/image-20201119223</div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2021-03-03
+            <i class="iconfont icon-date"></i>&nbsp;2020-11-19
           </div>
         
         
@@ -276,25 +300,28 @@ First Solution:“*” matches just o</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2021/02/04/IoTDB/cluster%E5%90%AF%E5%8A%A8%E9%85%8D%E7%BD%AE/">IoTDB/cluster启动配置</a>
+      <a class="index-header" href="/2020/11/18/%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93/">时序数据库</a>
 
-      <a href="/2021/02/04/IoTDB/cluster%E5%90%AF%E5%8A%A8%E9%85%8D%E7%BD%AE/" class="index-excerpt">
+      <a href="/2020/11/18/%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93/" class="index-excerpt">
         
         
           
         
-        <div>1.打包命令 mvn clean package -pl cluster -am -DskipTests
-# 第一步 (注意以下路径在 Windows MinGW 中并不适用)
-mvn clean package -pl cluster -am -Dmaven.test.skip=true
+        <div>疑问：
+WAL作用？
 
-NODE_NUM=3
-export CLUSTER_JAR_PATH=/Users/weizihan/wz</div>
+LSM Tree
+
+
+源码解析若往root.a.b.c(timestamp, age)插入数据，则会创建root.a存储组
+架构IoTDB 模块主要分为Client，JDBC，Server，TsFile，Grafana，Distribution 以及各种生态的连接器
+概念![image-20201118115504957](/Users/weizihan/Library/A</div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2021-02-04
+            <i class="iconfont icon-date"></i>&nbsp;2020-11-18
           </div>
         
         
@@ -307,28 +334,33 @@ export CLUSTER_JAR_PATH=/Users/weizihan/wz</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2021/02/04/IoTDB/Cluster%E6%9E%B6%E6%9E%84/">IoTDB/Cluster架构</a>
+      <a class="index-header" href="/2020/11/13/linux/">linux</a>
 
-      <a href="/2021/02/04/IoTDB/Cluster%E6%9E%B6%E6%9E%84/" class="index-excerpt">
+      <a href="/2020/11/13/linux/" class="index-excerpt">
         
         
           
         
-        <div>1.复习从github上下载的，在公司电脑上的raft的分布式代码
-分布式IoTDB服务启动：（start模式）
+        <div>文件描述符文件描述符指代打开的文件
+shell启动的进程会继承3个已经打开的file descriptor
+0为标准输入，表示的是为进程提供输入的文件；
+1为标准输出，表示的是为进程提供输出的文件；
+2为标准错误，表示的是供进程写入错误或异常消息的文件；
+0，1，2都是指向终端；对应stdio函数库的stdin, stdout, stderr
+特权进程
 
-创建节点实例（即创建MetaClusterServer）
-资源以及配置校验
 
-MetaClusterServer
-receives MetaGroup RPCs from internal_meta_port
-MetaClusterServer checks its configur</div>
+
+init进程（进程号为1的进程）
+
+
+</div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2021-02-04
+            <i class="iconfont icon-date"></i>&nbsp;2020-11-13
           </div>
         
         
@@ -341,22 +373,22 @@ MetaClusterServer checks its configur</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2021/02/03/IoTDB/Untitled/">IoTDB/Untitled</a>
+      <a class="index-header" href="/2020/02/18/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
 
-      <a href="/2021/02/03/IoTDB/Untitled/" class="index-excerpt">
+      <a href="/2020/02/18/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="index-excerpt">
         
         
           
         
-        <div>
-
-public MeasurementMNode[] getMNodes(PartialPath deviceId, String[] measurements)    throws MetadataException {  MNode deviceNode = getNodeByPath(deviceId);  MeasurementMNode[] mNodes = new Measureme</div>
+        <div>设计模式单例模式单例类只有一个私有的构造函数，这样就不能在外部使用new来实例化它。只能通过调用公共静态方法来获取其实例。
+策略模式参考资料：https://github.com/biezhi/java-bible/blob/master/designpatterns/strategy.md
+代理模式参考资料：https://blog.csdn.net/zuoxiaolong8810/articl</div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2021-02-03
+            <i class="iconfont icon-date"></i>&nbsp;2020-02-18
           </div>
         
         
@@ -369,20 +401,33 @@ public MeasurementMNode[] getMNodes(PartialPath deviceId, String[] measurements)
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2021/01/29/IoTDB/Design%20on%20creating%20a%20time%20series/">IoTDB/Design on creating a time series</a>
+      <a class="index-header" href="/2020/02/12/%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/">事务管理</a>
 
-      <a href="/2021/01/29/IoTDB/Design%20on%20creating%20a%20time%20series/" class="index-excerpt">
+      <a href="/2020/02/12/%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/" class="index-excerpt">
         
         
           
         
-        <div>Design on creating a time series that is a prefix path of an existing time series一.Background​    Up to date, it fails to create a time series that is a prefix path of an existing time series in IoTDB</div>
+        <div>事务的隔离级别
+
+在高并发场景下，若隔离没有控制得当，则可能产生：
+脏读；不可重复读；幻读
+脏读：
+
+
+
+
+
+
+开启事务（关闭自动提交事务）
+提交事务
+</div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2021-01-29
+            <i class="iconfont icon-date"></i>&nbsp;2020-02-12
           </div>
         
         
@@ -395,24 +440,27 @@ public MeasurementMNode[] getMNodes(PartialPath deviceId, String[] measurements)
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2021/01/29/IoTDB/%E5%85%B3%E4%BA%8E%E5%B0%86%E5%B7%B2%E5%AD%98%E5%9C%A8%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E7%9A%84%E5%89%8D%E7%BC%80%E5%BA%8F%E5%88%97%E5%88%9B%E5%BB%BA%E4%B8%BA%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E7%9A%84%E8%AE%BE%E8%AE%A1/">IoTDB/关于将已存在时间序列的前缀序列创建为时间序列的设计</a>
+      <a class="index-header" href="/2020/02/05/ThreadLocal/">ThreadLocal</a>
 
-      <a href="/2021/01/29/IoTDB/%E5%85%B3%E4%BA%8E%E5%B0%86%E5%B7%B2%E5%AD%98%E5%9C%A8%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E7%9A%84%E5%89%8D%E7%BC%80%E5%BA%8F%E5%88%97%E5%88%9B%E5%BB%BA%E4%B8%BA%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E7%9A%84%E8%AE%BE%E8%AE%A1/" class="index-excerpt">
+      <a href="/2020/02/05/ThreadLocal/" class="index-excerpt">
         
         
           
         
-        <div>关于将已存在时间序列的前缀序列创建为时间序列的设计一.背景​    目前，在IoTDB系统中若将已存在时间序列的前缀序列创建为时间序列，则会创建失败。
-​    例子: 
-​    （1）通过create语句创建时间序列：（语句执行顺序如下）
-​            create timeseries root.a.b.c.d with datatype=float
-​            c</div>
+        <div>ThreadLocal在JDBC Connection场景中使用案列使用ThreadLocal保存JDBC链接
+数据库连接工具类：
+
+
+数据库链接的使用方式：
+
+
+这个数据库链接使用的方式在多线程下会报数据库连接关闭错误。因为这个连接在多线程下是共用的，可能线程1 close了，线程2还在用相同的连接。（疑问：DriverManager.getConnection返回的是同一个对象吗？否则多线程返</div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2021-01-29
+            <i class="iconfont icon-date"></i>&nbsp;2020-02-05
           </div>
         
         
@@ -425,25 +473,30 @@ public MeasurementMNode[] getMNodes(PartialPath deviceId, String[] measurements)
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2021/01/29/IoTDB/%E4%BF%AE%E6%94%B9%E5%85%83%E6%95%B0%E6%8D%AE%E7%9A%84%E8%AE%BE%E8%AE%A1%20(copy)/">IoTDB/修改元数据的设计 (copy)</a>
+      <a class="index-header" href="/2020/02/02/JMM/">JMM</a>
 
-      <a href="/2021/01/29/IoTDB/%E4%BF%AE%E6%94%B9%E5%85%83%E6%95%B0%E6%8D%AE%E7%9A%84%E8%AE%BE%E8%AE%A1%20(copy)/" class="index-excerpt">
+      <a href="/2020/02/02/JMM/" class="index-excerpt">
         
         
           
         
-        <div>The design on converting prefix path of an existing time series into time series
-Background
-将系统中已存在时间序列的前缀路径修改为时间序列的设计
-背景
-目前系统中表示元数据节点的类型有三种，分别是MNode, StorageGroupMNode, MeasurementMNode
-StorageGroupM</div>
+        <div>Java内存模型重排序与happens-before的关系是什么？
+在重排序的基础上，JMM为了保证：
+
+
+
+
+重排序
+
+​        编译器（代码重排序）与处理器（指令重排序）不会改变存在数据依赖关系的两个操作的执行顺序。
+​        这里所说的数据依赖关系仅针对单个处理器中执行的指令序列和单个线程中执行的操作，不同处理器之间和不同线程之间的数据依赖关系不被编译器和处理器考虑。如：
+s</div>
       </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2021-01-29
+            <i class="iconfont icon-date"></i>&nbsp;2020-02-02
           </div>
         
         
@@ -456,7 +509,7 @@ StorageGroupM</div>
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   

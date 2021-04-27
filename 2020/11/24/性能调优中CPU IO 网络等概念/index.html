@@ -17,7 +17,7 @@
   <meta name="description" content="Less is more, and slower is faster">
   <meta name="author" content="ai">
   <meta name="keywords" content="coding java scala flink springboot springcloud kafka">
-  <title>事务管理 - deliberate learner</title>
+  <title>性能调优中CPU IO 网络等概念 - deliberate learner</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -152,8 +152,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-02-12 21:36">
-      2020年2月12日 晚上
+    <time datetime="2020-11-24 14:22">
+      2020年11月24日 下午
     </time>
   </div>
 
@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      55 字
+      587 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      6
        分钟
     </span>
   
@@ -204,19 +204,30 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <h2 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h2><img src="/Users/weizihan/Library/Application Support/typora-user-images/image-20201107204053580.png" srcset="/img/loading.gif" alt="image-20201107204053580" style="zoom:67%;" />
+              <h2 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h2><p>CPU性能受以下几个因素影响：</p>
+<ul>
+<li>处理器个数；</li>
+<li>核心个数；</li>
+<li>主频；</li>
+<li>有无Turbo模式；</li>
+</ul>
+<p>虽然 CPU 更新换代，但是处理器的时钟主频基本不再提高，甚至变得更低了。这样的目的是降低 CPU 的功耗。比如 SandyBridge 的时钟频率是 2.6GHz，但是到了 Skylake，反而降低到了 2GHz。</p>
+<p>每个处理器里面的核数却越来越多，这样就可以尽量的提升并行处理能力。</p>
+<p>每一代 CPU 都允许 Turbo 模式，就是让 CPU 的主频提高。目的是可以让处理器在特殊情况下，用提高功耗的代价来增加主频，从而获得更高性能。</p>
+<ul>
+<li>如何识别运行效率高或低的应用程序？</li>
+</ul>
+<p>衡量一个应用程序对 CPU 使用效率时，往往会考察 CPI（Cycles Per Instruction，每指令的周期数）和 IPC（Instructions Per Cycle，每周期的指令数）。这两个指标有助于识别运行效率高或低的应用程序。</p>
+<img src="/Users/weizihan/Library/Application Support/typora-user-images/image-20201126193745859.png" srcset="/img/loading.gif" alt="image-20201126193745859" style="zoom:80%;" />
 
-<p>在高并发场景下，若隔离没有控制得当，则可能产生：</p>
-<p>脏读；不可重复读；幻读</p>
-<p><strong>脏读：</strong></p>
-<img src="/Users/weizihan/Library/Application Support/typora-user-images/image-20201107204144410.png" srcset="/img/loading.gif" alt="image-20201107204144410" style="zoom:50%;" />
-
-
-
-<img src="/Users/weizihan/Library/Application Support/typora-user-images/image-20201107203810855.png" srcset="/img/loading.gif" alt="image-20201107203810855" style="zoom:67%;" />
-
-<p>开启事务（关闭自动提交事务）</p>
-<p>提交事务</p>
+<ul>
+<li>如何识别CPU性能？</li>
+</ul>
+<p>一台计算机的 CPU 性能一般用 MIPS（Millions ofInstructions Per Second）来衡量，表示每秒能运行多少个百万指令，MIPS 越高，性能越高。MIPS 的计算很简单，就是时钟频率×IPC。</p>
+<p>各个核的上下文切换次数最好要均衡：</p>
+<p>CPU 常见的各种中断包括软中断和硬中断。除此之外，还有一种特殊的中断：上下文切换。这些指标需要和每个核挂钩，理想情况下是各个核上的中断能够均衡。如果数量不均衡，往往会造成严重的性能问题——有的核会超载而导致系统响应缓慢，但是其他的核反而空闲</p>
+<p>CPU 对多线程的执行顺序是谁定的呢？</p>
+<p>是由内核的进程调度来决定的。内核进程调度负责管理和分配 CPU 资源，合理决定哪个进程该使用 CPU，哪个进程该等待。<strong>进程调度给不同的线程和任务分配了不同的优先级</strong>，<strong>优先级最高的是硬件中断，其次是内核（系统）进程，最后是用户进程</strong>。<strong>每个逻辑 CPU 都维护着一个可运行队列</strong>，用来存放可运行的线程来调度</p>
 
             </article>
             <hr>
@@ -233,9 +244,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/02/18/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                      <a href="/2020/11/25/so%E9%93%BE%E6%8E%A5%E5%AD%98%E5%82%A8/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">设计模式</span>
+                        <span class="hidden-mobile">so链接存储</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -243,8 +254,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/02/05/ThreadLocal/">
-                        <span class="hidden-mobile">ThreadLocal</span>
+                      <a href="/2020/11/19/issue%20contribute/">
+                        <span class="hidden-mobile">issue contribute</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -383,7 +394,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "事务管理&nbsp;",
+        "性能调优中CPU IO 网络等概念&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
