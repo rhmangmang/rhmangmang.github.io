@@ -395,18 +395,19 @@ public MeasurementMNode[] getMNodes(PartialPath deviceId, String[] measurements)
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2021/01/29/IoTDB/%E5%85%B3%E4%BA%8E%E5%B0%86%E5%B7%B2%E5%AD%98%E5%9C%A8%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E7%9A%84%E5%89%8D%E7%BC%80%E5%BA%8F%E5%88%97%E5%88%9B%E5%BB%BA%E4%B8%BA%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E7%9A%84%E8%AE%BE%E8%AE%A1/">IoTDB/关于将已存在时间序列的前缀序列创建为时间序列的设计</a>
+      <a class="index-header" href="/2021/01/29/IoTDB/%E4%BF%AE%E6%94%B9%E5%85%83%E6%95%B0%E6%8D%AE%E7%9A%84%E8%AE%BE%E8%AE%A1%20(copy)/">IoTDB/修改元数据的设计 (copy)</a>
 
-      <a href="/2021/01/29/IoTDB/%E5%85%B3%E4%BA%8E%E5%B0%86%E5%B7%B2%E5%AD%98%E5%9C%A8%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E7%9A%84%E5%89%8D%E7%BC%80%E5%BA%8F%E5%88%97%E5%88%9B%E5%BB%BA%E4%B8%BA%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E7%9A%84%E8%AE%BE%E8%AE%A1/" class="index-excerpt">
+      <a href="/2021/01/29/IoTDB/%E4%BF%AE%E6%94%B9%E5%85%83%E6%95%B0%E6%8D%AE%E7%9A%84%E8%AE%BE%E8%AE%A1%20(copy)/" class="index-excerpt">
         
         
           
         
-        <div>关于将已存在时间序列的前缀序列创建为时间序列的设计一.背景​    目前，在IoTDB系统中若将已存在时间序列的前缀序列创建为时间序列，则会创建失败。
-​    例子: 
-​    （1）通过create语句创建时间序列：（语句执行顺序如下）
-​            create timeseries root.a.b.c.d with datatype=float
-​            c</div>
+        <div>The design on converting prefix path of an existing time series into time series
+Background
+将系统中已存在时间序列的前缀路径修改为时间序列的设计
+背景
+目前系统中表示元数据节点的类型有三种，分别是MNode, StorageGroupMNode, MeasurementMNode
+StorageGroupM</div>
       </a>
 
       <div class="index-btm post-metas">
@@ -425,19 +426,18 @@ public MeasurementMNode[] getMNodes(PartialPath deviceId, String[] measurements)
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2021/01/29/IoTDB/%E4%BF%AE%E6%94%B9%E5%85%83%E6%95%B0%E6%8D%AE%E7%9A%84%E8%AE%BE%E8%AE%A1%20(copy)/">IoTDB/修改元数据的设计 (copy)</a>
+      <a class="index-header" href="/2021/01/29/IoTDB/%E5%85%B3%E4%BA%8E%E5%B0%86%E5%B7%B2%E5%AD%98%E5%9C%A8%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E7%9A%84%E5%89%8D%E7%BC%80%E5%BA%8F%E5%88%97%E5%88%9B%E5%BB%BA%E4%B8%BA%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E7%9A%84%E8%AE%BE%E8%AE%A1/">IoTDB/关于将已存在时间序列的前缀序列创建为时间序列的设计</a>
 
-      <a href="/2021/01/29/IoTDB/%E4%BF%AE%E6%94%B9%E5%85%83%E6%95%B0%E6%8D%AE%E7%9A%84%E8%AE%BE%E8%AE%A1%20(copy)/" class="index-excerpt">
+      <a href="/2021/01/29/IoTDB/%E5%85%B3%E4%BA%8E%E5%B0%86%E5%B7%B2%E5%AD%98%E5%9C%A8%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E7%9A%84%E5%89%8D%E7%BC%80%E5%BA%8F%E5%88%97%E5%88%9B%E5%BB%BA%E4%B8%BA%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E7%9A%84%E8%AE%BE%E8%AE%A1/" class="index-excerpt">
         
         
           
         
-        <div>The design on converting prefix path of an existing time series into time series
-Background
-将系统中已存在时间序列的前缀路径修改为时间序列的设计
-背景
-目前系统中表示元数据节点的类型有三种，分别是MNode, StorageGroupMNode, MeasurementMNode
-StorageGroupM</div>
+        <div>关于将已存在时间序列的前缀序列创建为时间序列的设计一.背景​    目前，在IoTDB系统中若将已存在时间序列的前缀序列创建为时间序列，则会创建失败。
+​    例子: 
+​    （1）通过create语句创建时间序列：（语句执行顺序如下）
+​            create timeseries root.a.b.c.d with datatype=float
+​            c</div>
       </a>
 
       <div class="index-btm post-metas">
